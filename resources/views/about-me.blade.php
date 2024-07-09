@@ -1,7 +1,8 @@
 <x-layout>
     <x-slot:title>
-        Home
+        About me
     </x-slot:title>
 
-    <h1>Home</h1>
+    <h1>About me</h1>
+
 </x-layout>
