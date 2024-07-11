@@ -36,10 +36,9 @@
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="/" class="rounded-md bg-gray-300 px-3 py-2 text-sm font-medium text-gray-800" aria-current="page">Home</a>
-                        <a href="/about-me" class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800">About me</a>
-                        <a href="/content" class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800">Content</a>
+                        <a href="/" class="bg-gray-300 px-3 py-2 text-sm font-medium rounded-md text-gray-800" aria-current="page">Home</a>
+                        <a href="/about-me" class=" px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-200 hover:text-gray-800">About me</a>
+                        <a href="/content" class=" px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-200 hover:text-gray-800">Content</a>
                     </div>
                 </div>
             </div>
@@ -67,10 +66,10 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="/" class="block rounded-md bg-gray-300 px-3 py-2 text-base font-medium text-gray-800" aria-current="page">Home</a>
-                <a href="/about-me" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800">About me</a>
-                <a href="/content" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800">Content</a>
+                <!-- Current: "bg-gray-300 text-gray-800", Default: "text-gray-600 hover:bg-gray-200 hover:text-gray-800" -->
+                <x-nav-link href="/">Home</x-nav-link>
+                <x-nav-link href="/about-me">About me</x-nav-link>
+                <x-nav-link href="/content">Content</x-nav-link>
             </div>
         </div>
     </nav>
