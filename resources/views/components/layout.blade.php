@@ -36,9 +36,12 @@
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
-                        <a href="/" class="bg-gray-300 px-3 py-2 text-sm font-medium rounded-md text-gray-800" aria-current="page">Home</a>
+                        {{-- <a href="/" class="bg-gray-300 px-3 py-2 text-sm font-medium rounded-md text-gray-800" aria-current="page">Home</a>
                         <a href="/about-me" class=" px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-200 hover:text-gray-800">About me</a>
-                        <a href="/content" class=" px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-200 hover:text-gray-800">Content</a>
+                        <a href="/content" class=" px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-200 hover:text-gray-800">Content</a> --}}
+                        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                        <x-nav-link href="/about-me" :active="request()->is('about-me')">About me</x-nav-link>
+                        <x-nav-link href="/content" :active="request()->is('content')">Content</x-nav-link>
                     </div>
                 </div>
             </div>
@@ -67,9 +70,9 @@
         <div class="sm:hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-300 text-gray-800", Default: "text-gray-600 hover:bg-gray-200 hover:text-gray-800" -->
-                <x-nav-link href="/">Home</x-nav-link>
-                <x-nav-link href="/about-me">About me</x-nav-link>
-                <x-nav-link href="/content">Content</x-nav-link>
+                <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                <x-nav-link href="/about-me" :active="request()->is('about-me')">About me</x-nav-link>
+                <x-nav-link href="/content" :active="request()->is('content')">Content</x-nav-link>
             </div>
         </div>
     </nav>
