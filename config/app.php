@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // Package to parse markdown to html with tailwind css classes
+    'Markdom' => Sinnbeck\Markdom\Facades\Markdom::class,
+
 ];
