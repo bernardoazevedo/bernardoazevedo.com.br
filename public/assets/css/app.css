@@ -1,24 +1,60 @@
 .parsedown h1 {
     font-size: 34px;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .parsedown h2 {
     font-size: 24px;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .parsedown h3 {
     font-size: 20px;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .parsedown h4 {
     font-size: 18px;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .parsedown h5 {
     font-size: 16px;
     font-weight: bold;
+    margin-top: 20px;
+}
+
+.parsedown p {
+
+}
+
+.parsedown ul {
+
+}
+
+.parsedown li {
+
+}
+
+.parsedown ol {
+
+}
+
+.parsedown a {
+    color: rgb(118, 9, 219);
+}
+
+.parsedown a:hover {
+    color: rgb(85, 13, 153);
+}
+
+.parsedown pre {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
 }
