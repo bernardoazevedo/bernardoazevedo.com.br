@@ -33,15 +33,17 @@
 }
 
 .parsedown ul {
-
+    list-style-type: circle;
+    list-style-position: inside;
 }
 
 .parsedown li {
-
+    
 }
 
 .parsedown ol {
-
+    list-style-type: decimal;
+    list-style-position: inside;
 }
 
 .parsedown a {
