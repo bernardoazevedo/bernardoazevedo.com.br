@@ -12,6 +12,11 @@ Route::get('/about-me', function () {
 });
 
 Route::get('/content', function () {
-    $htmlText = ContentController::getContent('teste.md');
+    $htmlText = ContentController::listContent();
+    return view('content', ['htmlText' => $htmlText]);
+});
+
+Route::get('/content/{slug}', function ($slug) {
+    $htmlText = ContentController::getContent($slug);
     return view('content', ['htmlText' => $htmlText]);
 });

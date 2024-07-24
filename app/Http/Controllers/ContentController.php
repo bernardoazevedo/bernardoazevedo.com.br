@@ -10,7 +10,7 @@ use Exception;
 class ContentController extends Controller
 {
     public static function getContent(String $name){
-        $markdownText = Storage::disk('local')->get($name);
+        $markdownText = Storage::disk('local')->get('public/content/' . $name);
 
         if(!isset($markdownText)){
             $content = '<h2>Ops... Conteúdo não encontrado</h2>';
@@ -19,6 +19,19 @@ class ContentController extends Controller
         else{
             $parsedown = new Parsedown();
             $content = $parsedown->text($markdownText);
+        }
+
+        return $content;
+    }
+
+    public static function listContent(){
+        $filesArray = Storage::disk('public')->files('content');
+        $parsedown = new Parsedown();
+
+        $content = '';
+        foreach($filesArray as $file){
+            $line = '- [' . $file . '](/' . $file . ')<br />';
+            $content = $content . $parsedown->text($line);
         }
 
         return $content;
