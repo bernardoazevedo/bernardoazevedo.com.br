@@ -30,7 +30,8 @@ class ContentController extends Controller
 
         $content = '';
         foreach($filesArray as $file){
-            $line = '- [' . $file . '](/' . $file . ')<br />';
+            $fileWithoutSpace = str_replace(' ', '%20', $file);
+            $line = '- [' . $file . '](/' . $fileWithoutSpace . ')<br />';
             $content = $content . $parsedown->text($line);
         }
 
