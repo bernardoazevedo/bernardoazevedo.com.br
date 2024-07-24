@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 use Parsedown;
-use Exception;
 
 class ContentController extends Controller
 {
@@ -14,7 +12,6 @@ class ContentController extends Controller
 
         if(!isset($markdownText)){
             $content = '<h2>Ops... Conteúdo não encontrado</h2>';
-            // abort(404);
         }
         else{
             $parsedown = new Parsedown();
@@ -25,14 +22,23 @@ class ContentController extends Controller
     }
 
     public static function listContent(){
-        $filesArray = Storage::disk('public')->files('content');
-        $parsedown = new Parsedown();
-
         $content = '';
-        foreach($filesArray as $file){
-            $fileWithoutSpace = str_replace(' ', '%20', $file);
-            $line = '- [' . $file . '](/' . $fileWithoutSpace . ')<br />';
-            $content = $content . $parsedown->text($line);
+        
+        $filesArray = Storage::disk('public')->files('content');
+        if(count($filesArray) == 0){
+            $content = '<h2>Ops... Conteúdo não encontrado</h2>';
+        }
+        else{
+            $parsedown = new Parsedown();
+            
+            foreach($filesArray as $file){
+                $fileName = str_replace('content/', '', $file);
+                $fileName = str_replace('.md', '', $fileName);
+                $fileWithoutSpace = str_replace(' ', '%20', $file);
+
+                $line = '- [' . $fileName . '](/' . $fileWithoutSpace . ')<br />';
+                $content = $content . $parsedown->text($line);
+            }
         }
 
         return $content;
