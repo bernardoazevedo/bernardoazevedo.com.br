@@ -8,7 +8,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about-me', function () {
-    return view('about-me');
+    $htmlText = ContentController::getAboutme();
+    return view('content', ['htmlText' => $htmlText]);
 });
 
 Route::get('/content', function () {

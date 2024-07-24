@@ -43,4 +43,18 @@ class ContentController extends Controller
 
         return $content;
     }
+
+    public static function getAboutme(){
+        $markdownText = Storage::disk('local')->get('public/about-me/about-me.md');
+
+        if(!isset($markdownText)){
+            $content = '<h2>Ops... Conteúdo não encontrado</h2>';
+        }
+        else{
+            $parsedown = new Parsedown();
+            $content = $parsedown->text($markdownText);
+        }
+
+        return $content;
+    }
 }
