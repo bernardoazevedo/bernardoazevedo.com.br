@@ -22,7 +22,7 @@ class ContentController extends Controller
     }
 
     public static function listContent(){
-        $content = '';
+        $content = '<h1>Content</h1>';
         
         $filesArray = Storage::disk('public')->files('content');
         if(count($filesArray) == 0){

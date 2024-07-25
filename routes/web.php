@@ -4,10 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
 
 Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/about-me', function () {
     $htmlText = ContentController::getAboutme();
     return view('content', ['htmlText' => $htmlText]);
 });
