@@ -1,45 +1,38 @@
 .parsedown h1 {
-    color: rgb(58, 58, 58);
     font-size: 34px;
     font-weight: bold;
     margin-top: 20px;
 }
 
 .parsedown h2 {
-    color: rgb(58, 58, 58);
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
 }
 
 .parsedown h3 {
-    color: rgb(58, 58, 58);
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
 }
 
 .parsedown h4 {
-    color: rgb(58, 58, 58);
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
 }
 
 .parsedown h5 {
-    color: rgb(58, 58, 58);
     font-size: 16px;
     font-weight: bold;
     margin-top: 20px;
 }
 
 .parsedown p {
-    color: rgb(58, 58, 58);
 
 }
 
 .parsedown ul {
-    color: rgb(58, 58, 58);
     list-style-type: circle;
     list-style-position: inside;
 }
@@ -49,7 +42,6 @@
 }
 
 .parsedown ol {
-    color: rgb(58, 58, 58);
     list-style-type: decimal;
     list-style-position: inside;
 }
