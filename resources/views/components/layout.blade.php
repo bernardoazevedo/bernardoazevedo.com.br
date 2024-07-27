@@ -92,7 +92,7 @@
 
         <!--Copyright section-->
         <div class="w-full bg-zinc-200 p-4 text-center">
-            Bernardo Azevedo Costa
+            © 2024 - Bernardo Azevedo Costa
         </div>
     </footer>
 </body>
