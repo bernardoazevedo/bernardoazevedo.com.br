@@ -1,12 +1,16 @@
-#linux #ubuntu
 # Como configurar rede no Ubuntu Server 24.04
+
 ## Introdução
+
 - O arquivo de configuração fica em: `etc/netplan`
 - Use `ls /etc/netplan` para ver o nome do seu arquivo
 - No meu caso, o nome do arquivo é `50-cloud-init.yaml`
 - Para editar o arquivo: `sudo nano /etc/netplan/50-cloud-init.yaml`
-## Exemplo da estrutura do arquivo:
+
+## Exemplo da estrutura do arquivo
+
 - Ethernet:
+
 ```
 network:
     version: 2
@@ -23,6 +27,7 @@ network:
 ```
 
 - Wi-Fi:
+
 ```
 network:
     version: 2
@@ -34,8 +39,11 @@ network:
                     password: senha-aqui
             dhcp4: true
 ```
-## Exemplo preenchido:
+
+## Exemplo preenchido
+
 - Ethernet:
+
 ```
 network:
     version: 2
@@ -52,6 +60,7 @@ network:
 ```
 
 - Wi-fi:
+
 ```
 network:
     version: 2
@@ -63,9 +72,13 @@ network:
                     password: minhasenha123
             dhcp4: true
 ```
-## Para aplicar as configurações:
+
+## Para aplicar as configurações
+
 - Antes de aplicar, teste a configuração: `sudo netplan try`
-- O programa avisará se houver algum erro. se tiver, corrija.
+- O programa avisará se houver algum erro. Se houver, corrija e teste novamente.
 - Se não exibir erros: `sudo netplan apply`
 
 Referência: https://people.ubuntu.com/~slyon/netplan-docs/examples/
+
+<!-- #linux #ubuntu -->
