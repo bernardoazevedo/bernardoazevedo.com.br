@@ -8,7 +8,7 @@ use Parsedown;
 class ContentController extends Controller
 {
     public static function getContent(String $name){
-        $markdownText = Storage::disk('local')->get('public/content/' . $name);
+        $markdownText = Storage::disk('local')->get('public/content/' . $name .'.md');
 
         if(!isset($markdownText)){
             $content = '<h2>Ops... Conteúdo não encontrado</h2>';
@@ -18,7 +18,9 @@ class ContentController extends Controller
             $content = $parsedown->text($markdownText);
         }
 
-        return $content;
+        $page = ['title' => $name, 'content' => $content];
+
+        return $page;
     }
 
     public static function listContent(){
@@ -34,6 +36,7 @@ class ContentController extends Controller
             foreach($filesArray as $file){
                 $fileName = str_replace('content/', '', $file);
                 $fileName = str_replace('.md', '', $fileName);
+                $file = str_replace('.md', '', $file);
                 $fileWithoutSpace = str_replace(' ', '%20', $file);
 
                 $line = '- [' . $fileName . '](/' . $fileWithoutSpace . ')<br />';
@@ -41,7 +44,9 @@ class ContentController extends Controller
             }
         }
 
-        return $content;
+        $page = ['title' => "Content", 'content' => $content];
+
+        return $page;
     }
 
     public static function getAboutme(){
@@ -55,6 +60,8 @@ class ContentController extends Controller
             $content = $parsedown->text($markdownText);
         }
 
-        return $content;
+        $page = ['title' => "Bernardo Azevedo Costa", 'content' => $content];
+
+        return $page;
     }
 }

@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
 
 Route::get('/', function () {
-    $htmlText = ContentController::getAboutme();
-    return view('content', ['htmlText' => $htmlText]);
+    $pageArray = ContentController::getAboutme();
+    return view('content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
 });
 
 Route::get('/content', function () {
-    $htmlText = ContentController::listContent();
-    return view('content', ['htmlText' => $htmlText]);
+    $pageArray = ContentController::listContent();
+    return view('content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
 });
 
 Route::get('/content/{slug}', function ($slug) {
-    $htmlText = ContentController::getContent($slug);
-    return view('content', ['htmlText' => $htmlText]);
+    $pageArray = ContentController::getContent($slug);
+    return view('content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
 });
