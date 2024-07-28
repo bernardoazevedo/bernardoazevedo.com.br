@@ -42,6 +42,7 @@
                 {{-- E-mail --}}
                 <a
                     href="mailto:bernardoazevedo.8@gmail.com"
+                    target="_blank"
                     type="button"
                     class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-300 focus:outline-none focus:ring-0"
                     data-twe-ripple-init>
@@ -55,6 +56,7 @@
                 {{-- LinkedIn --}}
                 <a
                     href="https://www.linkedin.com/in/bernardo-azevedo-49a008226"
+                    target="_blank"
                     type="button"
                     class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-300 focus:outline-none focus:ring-0"
                     data-twe-ripple-init>
@@ -73,6 +75,7 @@
                 {{-- Github --}}
                 <a
                     href="https://github.com/bernardoazevedo"
+                    target="_blank"
                     type="button"
                     class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-300 focus:outline-none focus:ring-0"
                     data-twe-ripple-init>
