@@ -1,6 +1,6 @@
 # [bernardoazevedo.com.br](https://bernardoazevedo.com.br)
 
-## What is this?
+## What is that?
 This is my personal website, to use as my resume and post my notes that I find usefull.
 
 ## I want to:
