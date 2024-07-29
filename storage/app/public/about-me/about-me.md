@@ -6,12 +6,14 @@
 - Conquistar a primeira vaga como desenvolvedor.
 
 ## Formação
-- Ciência da Computação - 5º Período - Cursando
+- Ciência da Computação - 6º Período - Cursando
 
 ## Experiência
-- Operador de Call Center - Grupo Educacional IBRA - 3 meses
-- Stringhini - Estágio - Homologador de produtos - 6 meses
-- SRE Caratinga - Estágio - Suporte Técnico - Emprego atual
+| Empresa                | Função                     | Tempo         |
+|------------------------|----------------------------|---------------|
+| Grupo Educacional IBRA | Operador de Call Center    | 3 meses       |
+| Stringhini             | Homologador de produtos    | 6 meses       |
+| SRE Caratinga          | Suporte Técnico            | Emprego atual |
 
 ## Cursos complementares
 - UX Unicórnio - Design de experência do usuário
