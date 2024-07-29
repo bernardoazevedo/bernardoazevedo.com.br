@@ -1,4 +1,4 @@
-# bernardoazevedo.com.br
+# [bernardoazevedo.com.br](https://bernardoazevedo.com.br)
 
 ## What is this?
 This is my personal website, to use as my resume and post my notes that I find usefull.
