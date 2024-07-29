@@ -1,13 +1,10 @@
-# Blog
+# bernardoazevedo.com.br
 
 ## What is this?
-This is a blog that I made for me.
-
-## Why?
-To post my obsidian permanent notes.
+This is my personal website, to use as my resume and post my notes that I find usefull.
 
 ## I want to:
-- [x] Post my obsidian notes here.
+- [x] Post my notes here.
 - [x] Build a platform that I can also use on my resume.
 
 ## To do:
