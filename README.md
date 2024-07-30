@@ -11,3 +11,6 @@ This is my personal website, to use as my resume and post my notes that I find u
 - [ ] Fix long words that don't wrap in code blocks.
 - [ ] Beautify the site...
 - [ ] Improve the UX, like spaces between list itens
+- [ ] Button to return to previous page
+- [ ] Button to previous and next post
+- [ ] Related posts at each content
