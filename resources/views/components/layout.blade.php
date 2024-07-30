@@ -6,6 +6,8 @@
     <title>{{ $title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" >
+    <link rel="icon" href="{{ url('assets/css/favicon.ico') }}">
+
 </head>
 <body>
     <div class="min-h-screen">

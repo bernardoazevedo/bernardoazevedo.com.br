@@ -55,7 +55,7 @@
 }
 
 .parsedown pre {
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(75 85 99);
     border-radius: 8px;
     padding: 8px 16px;
     margin: 4px 0px 16px 0px;
@@ -63,8 +63,8 @@
 }
 
 .parsedown code {
-    background-color: rgb(58, 58, 58);
-    color: white;
+    background-color: rgb(75 85 99);
+    color: rgb(245 245 245);
     border-radius: 8px;
     padding: 2px;
     margin: 4px 0px 16px 0px;
