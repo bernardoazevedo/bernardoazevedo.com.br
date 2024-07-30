@@ -1,3 +1,6 @@
+body {
+}
+
 .parsedown h1 {
     font-size: 34px;
     font-weight: bold;
@@ -28,17 +31,9 @@
     margin-top: 20px;
 }
 
-.parsedown p {
-
-}
-
 .parsedown ul {
     list-style-type: circle;
     list-style-position: inside;
-}
-
-.parsedown li {
-
 }
 
 .parsedown ol {
@@ -55,19 +50,21 @@
 }
 
 .parsedown pre {
-    background-color: rgb(75 85 99);
+    background-color: #4b5563;
     border-radius: 8px;
     padding: 8px 16px;
     margin: 4px 0px 16px 0px;
-    text-wrap: wrap;
+    text-wrap: normal;
 }
 
 .parsedown code {
-    background-color: rgb(75 85 99);
-    color: rgb(245 245 245);
+    background-color: #4b5563;
+    color: #f5f5f5;
     border-radius: 8px;
     padding: 2px;
     margin: 4px 0px 16px 0px;
+    font-family: "Roboto Mono", monospace;
+    font-size: small;
 }
 
 table {
@@ -79,9 +76,9 @@ table {
 th,
 td {
     padding: 8px;
-    border: 1px solid rgb(75 85 99);
+    border: 1px solid #4b5563;
 }
 
 th {
-background-color: #E5E5E5;
+    background-color: #E5E5E5;
 }
