@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout do repositorio
         uses: actions/checkout@v1
+
       - name: Deploy para minha hospedagem
         uses: easingthemes/ssh-deploy@main
         env:
@@ -20,3 +21,13 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
+      
+      - name: Instalar composer
+        shell: bash
+        run: |
+          source ~/.bashrc
+          composer install
+          npm run build
+          php artisan key:generate --ansi
+          php artisan storage link
+          ln -s public public_html
