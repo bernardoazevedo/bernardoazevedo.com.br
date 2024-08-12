@@ -21,13 +21,12 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-      
-      - name: Instalar composer
-        shell: bash
-        run: |
-          pwd
-          source ~/.bashrc
-          composer install
+
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.3"
+          version: "2.5.5"
 
       - name: npm run build
         shell: bash
