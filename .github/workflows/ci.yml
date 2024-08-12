@@ -28,10 +28,13 @@ jobs:
           php_version: "8.3"
           version: "2.5.5"
 
-      - name: npm run build
-        shell: bash
-        run: |
-          npm run build
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm test
 
       - name: laravel configs
         shell: bash
