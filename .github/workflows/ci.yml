@@ -25,7 +25,7 @@ jobs:
       - name: Instalar composer
         shell: bash
         run: |
-          cd ${{ secrets.REMOTE_TARGET }}
+          pwd
           source ~/.bashrc
           composer install
 
