@@ -27,7 +27,15 @@ jobs:
         run: |
           source ~/.bashrc
           composer install
+
+      - name: npm run build
+        shell: bash
+        run: |
           npm run build
+
+      - name: laravel configs
+        shell: bash
+        run: |
           php artisan key:generate --ansi
           php artisan storage link
           ln -s public public_html
