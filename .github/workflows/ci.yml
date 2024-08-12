@@ -25,7 +25,7 @@ jobs:
       - name: Instalar composer
         shell: bash
         run: |
-          cd domains/bernardoazevedo.com.br
+          cd $home/home/u244830058/domains/bernardoazevedo.com.br
           source ~/.bashrc
           composer install
 
