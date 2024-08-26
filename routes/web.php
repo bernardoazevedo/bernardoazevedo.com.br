@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/content', function () {
     $pageArray = ContentController::listContent();
-    return view('content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
+    return view('list-content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
 });
 
 Route::get('/content/{slug}', function ($slug) {
