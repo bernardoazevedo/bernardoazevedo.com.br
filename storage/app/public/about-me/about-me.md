@@ -9,11 +9,11 @@
 - Ciência da Computação - 6º Período - Cursando
 
 ## Experiência
-| Empresa                | Função                     | Tempo         |
-|------------------------|----------------------------|---------------|
-| Grupo Educacional IBRA | Operador de Call Center    | 3 meses       |
-| Stringhini             | Homologador de produtos    | 6 meses       |
-| SRE Caratinga          | Suporte Técnico            | Emprego atual |
+| Empresa                | Função                     |
+|------------------------|----------------------------|
+| Grupo Educacional IBRA | Operador de Call Center    |
+| Stringhini             | Homologador de produtos    |
+| SRE Caratinga          | Suporte Técnico            |
 
 ## Cursos complementares
 - UX Unicórnio - Design de experência do usuário
