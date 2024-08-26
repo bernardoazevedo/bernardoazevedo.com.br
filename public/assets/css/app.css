@@ -42,11 +42,11 @@ body {
 }
 
 .parsedown a {
-    color: rgb(118, 9, 219);
+    color: rgb(103, 25, 177);
 }
 
 .parsedown a:hover {
-    color: rgb(85, 13, 153);
+    color: rgb(60, 9, 107);
 }
 
 .parsedown pre {
