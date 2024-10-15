@@ -54,7 +54,7 @@ body {
     border-radius: 8px;
     padding: 8px 16px;
     margin: 4px 0px 16px 0px;
-    text-wrap: normal;
+    text-wrap: wrap;
 }
 
 .parsedown code {
