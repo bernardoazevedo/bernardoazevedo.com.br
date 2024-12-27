@@ -2,11 +2,92 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 use Parsedown;
 
 class ContentController extends Controller
 {
+    /**
+     * Display the creating view.
+     */
+    public function create(): View
+    {
+        return view('auth.register');
+    }
+
+    /**
+     * Handle an incoming creating request.
+     */
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'text'  => ['required', 'string'],
+        ]);
+
+        $content = Content::create([
+            'title' => $request->title,
+            'text'  => $request->text,
+        ]);
+
+        return redirect(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Save content by array.
+     */
+    public function storeByArray(array $content): RedirectResponse
+    {
+        $content = Content::create([
+            'title' => $content['title'],
+            'text'  => $content['text'],
+        ]);
+
+        return redirect(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Display the content's form.
+     */
+    public function edit(Request $request): View
+    {
+        return view('profile.edit', [
+            'content' => $request->content(),
+        ]);
+    }
+
+    /**
+     * Update the content's information.
+     */
+    public function update(Request $request): RedirectResponse
+    {
+        $request->content()->fill($request->validated());
+
+        $request->content()->save();
+
+        return Redirect::route('dashboard')->with('status', 'content-updated');
+    }
+
+    /**
+     * Delete the content.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        $content = $request->content();
+
+        $content->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
+    }
+
     public static function getContent(String $name){
         $markdownText = Storage::disk('local')->get('public/content/' . $name .'.md');
 
