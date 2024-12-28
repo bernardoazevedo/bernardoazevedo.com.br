@@ -24,6 +24,7 @@ jobs:
             whoami
             pwd
             ls
+            neofetch
             git pull origin main
             echo "done!"
 
