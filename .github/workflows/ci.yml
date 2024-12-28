@@ -37,4 +37,6 @@ jobs:
       # - run: npm test
 
       - name: Configurações
-        run: ./.github/scripts/deploy.sh
+        run: |
+          chmod +x .github/scripts/deploy.sh
+          ./.github/scripts/deploy.sh
