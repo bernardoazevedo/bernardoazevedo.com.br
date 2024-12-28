@@ -5,23 +5,23 @@ set -u
 echo "Deployment started ..."
 
 
-# wget -qO- https://cdn.rawgit.com/creationix/nvm/master/install.sh | bash
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-# nvm install 16
+wget -qO- https://cdn.rawgit.com/creationix/nvm/master/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install 16
 
-# source ~/.bashrc
+source ~/.bashrc
 
 echo "Copiando .env..."
 cp .env.example .env
 
-# echo "Baixando Composer..."
-# wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
-# php composer.phar install
+echo "Baixando Composer..."
+wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
+php composer.phar install
 
-# npm install
-# npm run build
+npm install
+npm run build
 
 echo "Configurações Laravel..."
 php artisan key:generate --ansi
