@@ -68,9 +68,13 @@ class ContentController extends Controller
      */
     public function update(Request $request): RedirectResponse
     {
-        $request->content()->fill($request->validated());
+        $content = $this->getContentById($request->id);
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'text'  => 'required|string',
+        ]);
 
-        $request->content()->save();
+        $content->update($validated);
 
         return Redirect::route('dashboard')->with('status', 'content-updated');
     }
@@ -80,14 +84,10 @@ class ContentController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $content = $request->content();
-
+        $content = $this->getContentById($request->id);
         $content->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return Redirect::route('dashboard')->with('status', 'content-destroyed');
     }
 
     public static function getContent(String $name){
@@ -103,7 +103,9 @@ class ContentController extends Controller
     }
 
     /**
-     * 
+     * get a content by your slug
+     * @param String $slug
+     * @return Content
      */
     public static function getContentBySlug(String $slug){
         $title = str_replace('%20', ' ', $slug);
@@ -112,7 +114,28 @@ class ContentController extends Controller
     }
 
     /**
+     * get a content by your title
+     * @param String $title
+     * @return Content
+     */
+    public static function getContentByTitle(String $title){
+        $content = Content::where('title', $title)->take(1)->get()[0];
+        return $content;
+    }
+
+    /**
+     * get a content by id
+     * @param int $id
+     * @return Content
+     */
+    public static function getContentById(int $id){
+        $content = Content::where('id', $id)->take(1)->get()[0];
+        return $content;
+    }
+
+    /**
      * get all contents
+     * @return \Illuminate\Database\Eloquent\Collection<int, static>
      */
     public static function getContents(){
         return Content::all();

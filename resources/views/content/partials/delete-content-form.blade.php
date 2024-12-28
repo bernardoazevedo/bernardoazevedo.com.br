@@ -19,6 +19,8 @@
             @csrf
             @method('delete')
 
+            <input type="hidden" name="id" value="{{ $content->id }}">
+
             <h2 class="text-lg font-medium text-gray-900">
                 {{ __('Are you sure you want to delete this content?') }}
             </h2>
