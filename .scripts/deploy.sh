@@ -11,11 +11,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 nvm install 16
 
-alias composer="php /usr/local/bin/composer2.phar"
-
 source ~/.bashrc
 cp .env.example .env
-composer install
+
+wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
+php composer.phar install
+
 npm install
 npm run build
 php artisan key:generate --ansi
