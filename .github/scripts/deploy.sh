@@ -2,7 +2,7 @@
 
 # set -u
 
-echo "Deployment started ..."
+echo "Começando deploy..."
 
 
 wget -qO- https://cdn.rawgit.com/creationix/nvm/master/install.sh | bash
@@ -27,4 +27,4 @@ npm run build
 # php artisan migrate
 
 
-echo "Deployment finished!"
+echo "Deploy finalizado!"
