@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -54,10 +55,11 @@ class ContentController extends Controller
     /**
      * Display the content's form.
      */
-    public function edit(Request $request): View
+    public function edit(string $slug): View
     {
-        return view('profile.edit', [
-            'content' => $request->content(),
+        $content = $this->getContentBySlug($slug);
+        return view('content.edit', [
+            'content' => $content,
         ]);
     }
 
@@ -98,12 +100,27 @@ class ContentController extends Controller
             $parsedown = new Parsedown();
             $content = $parsedown->text($markdownText);
         }
-
-        $page = ['title' => $name, 'content' => $content];
-
-        return $page;
     }
 
+    /**
+     * 
+     */
+    public static function getContentBySlug(String $slug){
+        $title = str_replace('%20', ' ', $slug);
+        $content = Content::where('title', $title)->take(1)->get()[0];
+        return $content;
+    }
+
+    /**
+     * get all contents
+     */
+    public static function getContents(){
+        return Content::all();
+    }
+
+    /**
+     * 
+     */
     public static function listContent(){
         $content = '<h1>Content</h1>';
         
@@ -130,6 +147,9 @@ class ContentController extends Controller
         return $page;
     }
 
+    /**
+     * 
+     */
     public static function getAboutme(){
         $markdownText = Storage::disk('local')->get('public/about-me/about-me.md');
 
@@ -144,5 +164,33 @@ class ContentController extends Controller
         $page = ['title' => "Bernardo Azevedo Costa", 'content' => $content];
 
         return $page;
+    }
+
+    public function saveFilesContentToDatabase(){
+        $filesList = Storage::disk('public')->files('content');
+
+        try{
+
+            foreach($filesList as $key => $mdFile){
+                $mdFile = str_replace('content/', '', $mdFile);
+                $filesList[$key] = $mdFile;
+                $markdownFiles[$mdFile] = Storage::disk('local')->get("public/content/$mdFile");
+            }
+            
+            $contentController = new ContentController();
+            foreach($markdownFiles as $title => $text){
+                $title = str_replace('.md', '', $title);
+                
+                $contentController->storeByArray([
+                    'title' => $title,
+                    'text'  => $text,
+                ]);
+            }
+        }
+        catch(Exception $e){
+            dd($e->getMessage());
+        }
+
+        return Redirect::to('dashboard');
     }
 }

@@ -10,8 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <ul>
-                        @foreach($markdownFiles as $title => $text)
-                            <li>{{ $title }}</li>    
+                        @foreach($contents as $key => $content)
+                            <li>
+                                <a href="/edit/{{ $content->title }}">{{ $content->title }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
