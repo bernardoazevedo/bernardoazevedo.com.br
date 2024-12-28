@@ -21,10 +21,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             echo "running..."
-            whoami
-            pwd
-            ls
-            neofetch
+            cd domains/bernardoazevedo.com.br/
             git pull origin main
             echo "done!"
 
