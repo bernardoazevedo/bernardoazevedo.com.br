@@ -5,22 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    $pageArray = ContentController::getAboutme();
-    return view('content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
-});
-
-Route::get('/content', function () {
-    $pageArray = ContentController::listContent();
-    return view('list-content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
-});
-
-Route::get('/content/{slug}', function ($slug) {
-    $pageArray = ContentController::getContent($slug);
-    return view('content', ['htmlText' => $pageArray['content'], 'pageTitle' => $pageArray['title']]);
-});
-
-
+Route::get('/', [ContentController::class, 'showAboutMe'])->name('about-me');
+Route::get('/content', [ContentController::class, 'listContent'])->name('content.list');
+Route::get('/content/{slug}', [ContentController::class, 'showContent'])->name('content.shiw');
 
 Route::middleware('auth')->group(function () {
     // profile
@@ -36,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/{slug}', [ContentController::class, 'edit'])->name('content.edit');
     Route::patch('/content', [ContentController::class, 'update'])->name('content.update');
     Route::delete('/content', [ContentController::class, 'destroy'])->name('content.destroy');
+    Route::get('/new-content', [ContentController::class, 'create'])->name('content.create');
+    Route::post('/store-content', [ContentController::class, 'store'])->name('content.store');
 });
 
 require __DIR__.'/auth.php';
