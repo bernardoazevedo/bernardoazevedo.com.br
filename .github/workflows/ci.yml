@@ -35,8 +35,3 @@ jobs:
       - run: npm install
       - run: npm run build --if-present
       # - run: npm test
-
-      - name: Configurações
-        run: |
-          chmod +x .github/scripts/deploy.sh
-          ./.github/scripts/deploy.sh
