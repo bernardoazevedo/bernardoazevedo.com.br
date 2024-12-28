@@ -26,7 +26,7 @@ class ContentController extends Controller
      * @return \Illuminate\Contracts\View\View
      */
     public function listContent(){
-        return view('list-content', [
+        return view('content.list-content', [
             'contents' => $this->getContents(),
         ]);
     }
@@ -47,7 +47,7 @@ class ContentController extends Controller
             $content->text = $this->markdownToHtml($content->text);
         }
 
-        return view('content', [
+        return view('content.content', [
             'content' => $content,
         ]);
     }
