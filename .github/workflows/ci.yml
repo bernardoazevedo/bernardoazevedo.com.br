@@ -19,7 +19,11 @@ jobs:
           password: ${{ secrets.REMOTE_PASSWORD }}
           port: ${{ secrets.REMOTE_PORT }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          script: whoami
+          script: |
+            echo "running..."
+            whoami
+            git pull origin main
+            echo "done!"
 
 #       - name: Deploy para minha hospedagem
 #         uses: easingthemes/ssh-deploy@main
