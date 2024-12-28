@@ -10,6 +10,14 @@ jobs:
     steps:
       - name: Checkout do repositorio
         uses: actions/checkout@v1
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          port: ${{ secrets.REMOTE_PORT }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
       - run: git pull origin main
 
 #       - name: Deploy para minha hospedagem
