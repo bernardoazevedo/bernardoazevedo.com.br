@@ -8,8 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-#       - name: Checkout do repositorio
-#         uses: actions/checkout@v1
+      - name: Checkout do repositorio
+        uses: actions/checkout@v1
+      - run: git pull origin main
 
 #       - name: Deploy para minha hospedagem
 #         uses: easingthemes/ssh-deploy@main
@@ -35,5 +36,3 @@ jobs:
 #       - run: npm install
 #       - run: npm run build --if-present
       # - run: npm test
-      - name: git pull
-      - run: git pull origin main
