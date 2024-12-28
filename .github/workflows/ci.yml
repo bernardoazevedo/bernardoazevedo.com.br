@@ -24,13 +24,17 @@ jobs:
             cd domains/bernardoazevedo.com.br/
             git pull origin main
             echo "done!"
+            echo "running deploy.sh..."
+            chmod +x /.github/scripts/deploy.sh
+            ./.github/scripts/deploy.sh
+            echo "done!"
+
 
       - name: Install dependencies
         uses: php-actions/composer@v6
         with:
           php_version: "8.3"
           version: "2.5.5"
-          working_dir: ${{ secrets.REMOTE_TARGET }}
 
 #       - name: Use Node.js
 #         uses: actions/setup-node@v4
