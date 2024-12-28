@@ -1,13 +1,13 @@
-# name: bernardoazevedo.com.br CI
-# on: 
-#   push:
-#     branches:
-#       - main
+name: bernardoazevedo.com.br CI
+on: 
+  push:
+    branches:
+      - main
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
 #       - name: Checkout do repositorio
 #         uses: actions/checkout@v1
 
@@ -35,3 +35,5 @@
 #       - run: npm install
 #       - run: npm run build --if-present
       # - run: npm test
+      - name: git pull
+      - run: git pull origin main
