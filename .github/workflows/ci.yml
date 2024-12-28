@@ -23,6 +23,7 @@ jobs:
             echo "running..."
             whoami
             pwd
+            ls
             git pull origin main
             echo "done!"
 
