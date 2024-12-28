@@ -25,7 +25,7 @@ jobs:
             git pull origin main
             echo "done!"
             echo "running deploy.sh..."
-            chmod +x /.github/scripts/deploy.sh
+            chmod +x .github/scripts/deploy.sh
             ./.github/scripts/deploy.sh
             echo "done!"
 
