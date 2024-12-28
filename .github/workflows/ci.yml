@@ -20,32 +20,21 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            echo "running..."
+            echo "running pull..."
             cd domains/bernardoazevedo.com.br/
             git pull origin main
             echo "done!"
 
-#       - name: Deploy para minha hospedagem
-#         uses: easingthemes/ssh-deploy@main
-#         env:
-#           SSH_PRIVATE_KEY: ${{secrets.SERVER_SSH_KEY}}
-#           ARGS: "-rltgoDzv0 --delete"
-#           SOURCE: "/"
-#           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-#           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-#           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-#           TARGET: ${{ secrets.REMOTE_TARGET }}
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.3"
+          version: "2.5.5"
 
-#       - name: Install dependencies
-#         uses: php-actions/composer@v6
-#         with:
-#           php_version: "8.3"
-#           version: "2.5.5"
-
-#       - name: Use Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: '20'
-#       - run: npm install
-#       - run: npm run build --if-present
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run build --if-present
       # - run: npm test
