@@ -5,28 +5,23 @@ set -u
 echo "Deployment started ..."
 
 
-# Enter maintenance mode or return true
-# if already is in maintenance mode
-(php artisan down) || true
+wget -qO- https://cdn.rawgit.com/creationix/nvm/master/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install 16
 
+alias composer="php /usr/local/bin/composer2.phar"
+
+source ~/.bashrc
 cp .env.example .env
-
-# Clear the old cache
-php artisan clear-compiled
-
-# Recreate cache
-php artisan optimize
-
-# Run database migrations
-php artisan migrate --force
-
+composer install
+npm install
+npm run build
 php artisan key:generate --ansi
-
 php artisan storage:link
-
 ln -s public public_html
+php artisan migrate
 
-# Exit maintenance mode
-php artisan up
 
 echo "Deployment finished!"
