@@ -22,24 +22,21 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
 
-      - name: Install dependencies
-        uses: php-actions/composer@v6
-        with:
-          php_version: "8.3"
-          version: "2.5.5"
+      # - name: Install dependencies
+      #   uses: php-actions/composer@v6
+      #   with:
+      #     php_version: "8.3"
+      #     version: "2.5.5"
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install
-      - run: npm run build --if-present
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      # - run: npm install
+      # - run: npm run build --if-present
       # - run: npm test
 
-      - name: laravel configs
+      - name: custom configs
         shell: bash
         run: |
-          cp .env.example .env
-          php artisan key:generate --ansi
-          php artisan storage link
-          ln -s public public_html
+          cd domains/bernardoazevedo.com.br && ./.scripts/deploy.sh
