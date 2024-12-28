@@ -39,6 +39,7 @@ jobs:
       - name: laravel configs
         shell: bash
         run: |
+          cp .env.example .env
           php artisan key:generate --ansi
           php artisan storage link
           ln -s public public_html
