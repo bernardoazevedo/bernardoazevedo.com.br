@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <div id="htmlText" class="parsedown px-4 mb-8 flex flex-col gap-y-2 sm:w-auto md:w-1/2 text-gray-600 mt-6">
-        {!! $content->text !!}
+    <div id="htmlText" class="parsedown flex flex-col gap-y-2 sm:w-auto text-gray-600">
+        
     </div>
 </section>

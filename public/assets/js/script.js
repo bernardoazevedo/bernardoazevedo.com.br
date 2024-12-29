@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#text').on('keyup', function(){
+    let parseMarkdown = function(){
         let markdownText = $('#text').val();
 
         $.ajax({
@@ -15,5 +15,8 @@ $(document).ready(function(){
 
             }
         });
-    });
+    }
+
+    $('#text').ready(parseMarkdown);
+    $('#text').on('keyup', parseMarkdown);
 });
