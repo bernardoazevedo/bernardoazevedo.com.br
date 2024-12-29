@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // content
-    Route::get('/saveToDatabase', [ContentController::class, 'saveFilesContentToDatabase'])->name('saveToDatabase');
+    // Route::get('/saveToDatabase', [ContentController::class, 'saveFilesContentToDatabase'])->name('saveToDatabase');
     Route::get('/edit/{slug}', [ContentController::class, 'edit'])->name('content.edit');
     Route::patch('/content', [ContentController::class, 'update'])->name('content.update');
     Route::delete('/content', [ContentController::class, 'destroy'])->name('content.destroy');
