@@ -167,6 +167,15 @@ class ContentController extends Controller
         return Redirect::route('dashboard')->with('status', 'content-destroyed');
     }
 
+        /**
+     * Parse a Markdown text to HTML
+     * @param  String $markdownText the Markdown text to be parsed to HTML
+     * @return String 
+     */
+    public function markdownToHtmlAjax(Request $request): String {
+        return $this->markdownToHtml($request->markdownText);
+    }
+
     /**
      * Get all contents
      * @return \Illuminate\Database\Eloquent\Collection<int, static>

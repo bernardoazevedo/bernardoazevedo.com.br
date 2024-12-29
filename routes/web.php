@@ -9,6 +9,8 @@ Route::get('/', [ContentController::class, 'showAboutMe'])->name('about-me');
 Route::get('/content', [ContentController::class, 'listContent'])->name('content.list');
 Route::get('/content/{slug}', [ContentController::class, 'showContent'])->name('content.shiw');
 
+Route::get('/markdownToHtml', [ContentController::class, 'markdownToHtmlAjax'])->name('markdownToHtml');
+
 Route::middleware('auth')->group(function () {
     // profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

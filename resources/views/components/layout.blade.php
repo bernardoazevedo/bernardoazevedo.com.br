@@ -102,5 +102,8 @@
             © 2024 - Bernardo Azevedo Costa
         </div>
     </footer>
+
+    <script src="{{ url('assets/js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url('assets/js/script.js') }}"></script>
 </body>
 </html>

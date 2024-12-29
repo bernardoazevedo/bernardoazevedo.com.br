@@ -10,6 +10,7 @@
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('content.partials.update-content-form')
+                    @include('content.partials.parsed-content')
                 </div>
             </div>
 
@@ -21,3 +22,4 @@
         </div>
     </div>
 </x-app-layout>
+

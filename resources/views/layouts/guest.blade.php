@@ -5,9 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Bernardo Azevedo') }}</title>
         
         <link rel="icon" href="{{ url('assets/css/favicon.ico') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" >
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -29,4 +30,7 @@
             </div>
         </div>
     </body>
+
+    <script src="{{ url('assets/js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url('assets/js/script.js') }}"></script>
 </html>
