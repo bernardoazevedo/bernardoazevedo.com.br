@@ -93,16 +93,14 @@ class ContentController extends Controller
     /**
      * Display the creating view.
      */
-    public function create(): View
-    {
+    public function create(): View {
         return view('content.create');
     }
 
     /**
      * Handle an incoming creating request.
      */
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'text'  => ['required', 'string'],
@@ -119,8 +117,7 @@ class ContentController extends Controller
     /**
      * Save content by array.
      */
-    public function storeByArray(array $content): RedirectResponse
-    {
+    public function storeByArray(array $content): RedirectResponse {
         $content = Content::create([
             'title' => $content['title'],
             'text'  => $content['text'],
@@ -132,8 +129,7 @@ class ContentController extends Controller
     /**
      * Display the content's form.
      */
-    public function edit(string $slug): View
-    {
+    public function edit(string $slug): View {
         $content = $this->getContentBySlug($slug);
         return view('content.edit', [
             'content' => $content,
@@ -143,8 +139,7 @@ class ContentController extends Controller
     /**
      * Update the content's information.
      */
-    public function update(Request $request): RedirectResponse
-    {
+    public function update(Request $request): RedirectResponse {
         $content = $this->getContentById($request->id);
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -159,8 +154,7 @@ class ContentController extends Controller
     /**
      * Delete the content.
      */
-    public function destroy(Request $request): RedirectResponse
-    {
+    public function destroy(Request $request): RedirectResponse {
         $content = $this->getContentById($request->id);
         $content->delete();
 
