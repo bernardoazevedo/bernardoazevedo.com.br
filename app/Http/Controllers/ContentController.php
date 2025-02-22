@@ -201,7 +201,7 @@ class ContentController extends Controller {
             $content->title = 'Erro';
             $content->text = '
 # Erro
-Erro ao encontrar conteúdo, tente novamente.
+Erro ao buscar conteúdo, tente novamente.
             ';
         }
         return $content;
