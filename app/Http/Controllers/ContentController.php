@@ -200,7 +200,17 @@ class ContentController extends Controller
      * @return Content
      */
     private function getContentByTitle(String $title){
-        $content = Content::where('title', $title)->take(1)->get()[0];
+        try{
+            $content = Content::where('title', $title)->take(1)->get()[0];
+        }
+        catch(Exception $e){
+            $content = new Content();
+            $content->title = 'Erro';
+            $content->text = '
+# Erro
+Erro ao encontrar conteúdo, tente novamente.
+            ';
+        }
         return $content;
     }
 
