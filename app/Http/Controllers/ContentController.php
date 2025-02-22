@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Parsedown;
 
-class ContentController extends Controller
-{
+class ContentController extends Controller {
     /**
      * Action to show the about-me
      * @return false|\Illuminate\Contracts\View\View
