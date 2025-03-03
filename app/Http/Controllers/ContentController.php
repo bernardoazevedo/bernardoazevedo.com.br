@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use ParsedownExtra;
+use ParsedownTasks;
 
 class ContentController extends Controller {
     /**
@@ -223,7 +223,7 @@ Erro ao buscar conteúdo, tente novamente.
      * @return String
      */
     private function markdownToHtml(String $markdownText): String {
-        $parsedown = new ParsedownExtra();
+        $parsedown = new ParsedownTasks();
         $htmlText  = $parsedown->text($markdownText);
         return $htmlText;
     }

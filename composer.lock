@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd09c185b24a8fe4f3f2a8258be89d78",
+    "content-hash": "b10170118f96b23fca886a4cfce29515",
     "packages": [
         {
             "name": "brick/math",
@@ -2983,6 +2983,48 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.12.4"
             },
             "time": "2024-06-10T01:18:23+00:00"
+        },
+        {
+            "name": "raffaelj/parsedown-tasks",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://codeberg.org/raffaelj/parsedown-tasks",
+                "reference": "9b317fc0f7ab93156f2dec3d268367a114913cb7"
+            },
+            "require": {
+                "erusev/parsedown": "^1.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ParsedownTasks": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raffael Jesche",
+                    "homepage": "https://www.rlj.me"
+                }
+            ],
+            "description": "Tasks list (checkbox) extension for Parsedown, ParsedownExtra and ParsedownToc",
+            "homepage": "https://codeberg.org/raffaelj/parsedown-tasks",
+            "keywords": [
+                "checkbox",
+                "markdown",
+                "markdown extra",
+                "parsedown",
+                "parser",
+                "task list"
+            ],
+            "time": "2023-01-21T14:18:06+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
