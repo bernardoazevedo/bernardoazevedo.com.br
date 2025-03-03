@@ -100,14 +100,6 @@ class ContentController extends Controller {
      * Handle an incoming creating request.
      */
     public function store(Request $request): RedirectResponse {
-        // $returnContent = $this->getContentByTitle($request->title);
-        // if(!empty($returnContent)){
-        //     $existContentWithThisName = true;
-        // }
-        // else{
-        //     $existContentWithThisName = false;
-        // }
-
         $request->validate([
             'title' => ['required', 'string', 'max:255', 'unique:contents,title'],
             'text'  => ['required', 'string'],
