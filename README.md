@@ -8,7 +8,7 @@ This is my personal website, to use as my resume and post my notes that I find u
 - [x] Build a platform that I can also use on my resume.
 
 ## To do:
-- [ ] Fix long words that don't wrap in code blocks.
+- [x] Fix long words that don't wrap in code blocks.
 - [ ] Beautify the site...
 - [ ] Improve the UX, like spaces between list itens
 - [ ] Button to return to previous page

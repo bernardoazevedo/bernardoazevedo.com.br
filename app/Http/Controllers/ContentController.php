@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use Parsedown;
+use ParsedownExtra;
 
 class ContentController extends Controller {
     /**
@@ -32,7 +32,7 @@ class ContentController extends Controller {
 
     /**
      * Action to show selected content
-     * 
+     *
      * @param String $slug the content slug
      * @return false|\Illuminate\Contracts\View\View
      */
@@ -71,11 +71,11 @@ class ContentController extends Controller {
                 $mdFile = str_replace('about-me/', '', $mdFile);
                 $markdownFiles[$mdFile] = Storage::disk('local')->get("public/about-me/$mdFile");
             }
-            
+
             // storing in database
             foreach($markdownFiles as $title => $text){
                 $title = str_replace('.md', '', $title);
-                
+
                 $this->storeByArray([
                     'title' => $title,
                     'text'  => $text,
@@ -100,8 +100,16 @@ class ContentController extends Controller {
      * Handle an incoming creating request.
      */
     public function store(Request $request): RedirectResponse {
+        // $returnContent = $this->getContentByTitle($request->title);
+        // if(!empty($returnContent)){
+        //     $existContentWithThisName = true;
+        // }
+        // else{
+        //     $existContentWithThisName = false;
+        // }
+
         $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255', 'unique:contents,title'],
             'text'  => ['required', 'string'],
         ]);
 
@@ -163,7 +171,7 @@ class ContentController extends Controller {
         /**
      * Parse a Markdown text to HTML
      * @param  String $markdownText the Markdown text to be parsed to HTML
-     * @return String 
+     * @return String
      */
     public function markdownToHtmlAjax(Request $request): String {
         return $this->markdownToHtml($request->markdownText);
@@ -220,10 +228,10 @@ Erro ao buscar conteúdo, tente novamente.
     /**
      * Parse a Markdown text to HTML
      * @param  String $markdownText the Markdown text to be parsed to HTML
-     * @return String 
+     * @return String
      */
     private function markdownToHtml(String $markdownText): String {
-        $parsedown = new Parsedown();
+        $parsedown = new ParsedownExtra();
         $htmlText  = $parsedown->text($markdownText);
         return $htmlText;
     }

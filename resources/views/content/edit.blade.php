@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-600 leading-tight">
             {{ __('Content') }}
         </h2>
     </x-slot>
@@ -11,7 +11,7 @@
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     @include('content.partials.update-content-form')
                 </div>
-                
+
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     @include('content.partials.parsed-content')
                 </div>
