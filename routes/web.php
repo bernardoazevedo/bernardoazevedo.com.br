@@ -7,7 +7,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [ContentController::class, 'showAboutMe'])->name('about-me');
 Route::get('/content', [ContentController::class, 'listContent'])->name('content.list');
-Route::get('/content/{slug}', [ContentController::class, 'showContent'])->name('content.shiw');
+Route::get('/content/{slug}', [ContentController::class, 'showContent'])->name('content.show');
 
 Route::get('/markdownToHtml', [ContentController::class, 'markdownToHtmlAjax'])->name('markdownToHtml');
 
@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
     // dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
