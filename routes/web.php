@@ -4,12 +4,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
+use App\Services\ParserService;
+use App\Http\Controllers\SearchController;
 
 Route::get('/', [ContentController::class, 'showAboutMe'])->name('about-me');
 Route::get('/content', [ContentController::class, 'listContent'])->name('content.list');
 Route::get('/content/{slug}', [ContentController::class, 'showContent'])->name('content.show');
 
-Route::get('/markdownToHtml', [ContentController::class, 'markdownToHtmlAjax'])->name('markdownToHtml');
+Route::get('/markdownToHtml', [ParserService::class, 'markdownToHtmlAjax'])->name('markdownToHtml');
+
+Route::get('/searchContents', [SearchController::class, 'searchContentsAjax'])->name('searchContents');
 
 Route::middleware('auth')->group(function () {
     // profile

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Services\ParserService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use ParsedownTasks;
 
 class ContentController extends Controller {
     /**
@@ -43,7 +43,8 @@ class ContentController extends Controller {
             return false;
         }
         else{
-            $content->text = $this->markdownToHtml($content->text);
+            $parserService = new ParserService();
+            $content->text = $parserService->markdownToHtml($content->text);
         }
 
         return view('content.content', [
@@ -160,15 +161,6 @@ class ContentController extends Controller {
         return Redirect::route('dashboard')->with('status', 'content-destroyed');
     }
 
-        /**
-     * Parse a Markdown text to HTML
-     * @param  String $markdownText the Markdown text to be parsed to HTML
-     * @return String
-     */
-    public function markdownToHtmlAjax(Request $request): String {
-        return $this->markdownToHtml($request->markdownText);
-    }
-
     /**
      * Get all contents
      * @return \Illuminate\Database\Eloquent\Collection<int, static>
@@ -200,8 +192,8 @@ class ContentController extends Controller {
             $content = new Content();
             $content->title = 'Erro';
             $content->text = '
-# Erro
-Erro ao buscar conteúdo, tente novamente.
+# Ops...
+Esse conteúdo não foi encontrado, verifique se as informações estão corretas.
             ';
         }
         return $content;
@@ -215,16 +207,5 @@ Erro ao buscar conteúdo, tente novamente.
     private function getContentById(int $id){
         $content = Content::where('id', $id)->take(1)->get()[0];
         return $content;
-    }
-
-    /**
-     * Parse a Markdown text to HTML
-     * @param  String $markdownText the Markdown text to be parsed to HTML
-     * @return String
-     */
-    private function markdownToHtml(String $markdownText): String {
-        $parsedown = new ParsedownTasks();
-        $htmlText  = $parsedown->text($markdownText);
-        return $htmlText;
     }
 }

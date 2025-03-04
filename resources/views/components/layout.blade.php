@@ -20,6 +20,7 @@
                         <div class="flex space-x-4">
                             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                             <x-nav-link href="/content" :active="request()->is('content')">Content</x-nav-link>
+                            <x-search-bar></x-search-bar>
                         </div>
                     </div>
                 </div>
