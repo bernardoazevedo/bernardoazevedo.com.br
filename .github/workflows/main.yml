@@ -1,0 +1,57 @@
+name: bernardoazevedo.com.br CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_REMOTE_HOST }}
+          username: ${{ secrets.FTP_REMOTE_USER }}
+          password: ${{ secrets.FTP_REMOTE_PASSWORD }}
+          server-dir: domains/bernardoazevedo.com.br/
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          port: ${{ secrets.REMOTE_PORT }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            pwd
+            cd domains/bernardoazevedo.com.br
+
+            echo "opa, vamos configurar..."
+
+            wget -qO- https://cdn.rawgit.com/creationix/nvm/master/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+            nvm install 16
+
+            source ~/.bashrc
+
+            echo "baixando Composer..."
+            wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
+            php composer.phar install
+
+            npm install
+            npm run build
+
+            echo "configurando Laravel..."
+            php artisan key:generate --ansi
+            php artisan storage:link
+            ln -s public public_html
+            php artisan migrate
+
+            echo "deu certo!"
