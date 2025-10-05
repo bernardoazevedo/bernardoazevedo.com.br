@@ -38,7 +38,7 @@ class UrlController extends Controller {
     public function edit(string $slug): View {
         $url = UrlService::getUrlByName($slug);
         return view('url.edit', [
-            
+
             'url' => $url,
         ]);
     }
@@ -56,7 +56,8 @@ class UrlController extends Controller {
     }
 
     public function redirect(Request $request): RedirectResponse {
-        $url = UrlService::getUrlByName($request->slug);
+        $url        = UrlService::getUrlByName($request->slug);
+        $url['url'] = UrlService::formatUrl($url['url']);
         return redirect($url['url']);
     }
 

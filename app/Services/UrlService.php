@@ -17,4 +17,11 @@ class UrlService {
     public static function getUrlById(int $id) {
         return Url::where('id', $id)->take(1)->get()[0];
     }
+
+    public static function formatUrl(String $url): String {
+        if(!str_starts_with($url, "https://") || !str_starts_with($url, "http://")) {
+            $url = "https://$url";
+        }
+        return $url;
+    }
 }
