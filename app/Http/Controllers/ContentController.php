@@ -33,10 +33,10 @@ class ContentController extends Controller {
     /**
      * Action to show selected content
      *
-     * @param String $slug the content slug
+     * @param string $slug the content slug
      * @return false|\Illuminate\Contracts\View\View
      */
-    public function showContent(String $slug){
+    public function showContent(string $slug){
         $content = $this->getContentBySlug($slug);
 
         if(!isset($content)){
@@ -171,20 +171,20 @@ class ContentController extends Controller {
 
     /**
      * Get a content by it's slug
-     * @param String $slug
+     * @param string $slug
      * @return Content
      */
-    private function getContentBySlug(String $slug){
+    private function getContentBySlug(string $slug){
         $title = str_replace('%20', ' ', $slug);
         return $this->getContentByTitle($title);
     }
 
     /**
      * Get a content by it's title
-     * @param String $title
+     * @param string $title
      * @return Content
      */
-    private function getContentByTitle(String $title){
+    private function getContentByTitle(string $title){
         try{
             $content = Content::where('title', $title)->take(1)->get()[0];
         }

@@ -10,7 +10,7 @@ class UrlService {
         return Url::all();
     }
 
-    public static function getUrlByName(String $name) {
+    public static function getUrlByName(string $name) {
         return Url::where('name', $name)->take(1)->get()[0];
     }
 
@@ -18,7 +18,7 @@ class UrlService {
         return Url::where('id', $id)->take(1)->get()[0];
     }
 
-    public static function formatUrl(String $url): String {
+    public static function formatUrl(string $url): string {
         if(!str_starts_with($url, "https://") || !str_starts_with($url, "http://")) {
             $url = "https://$url";
         }
