@@ -30,7 +30,7 @@ $(document).ready(function(){
             html = `<div class="search-error">${contentsArray.error} &#129488</div>`;
         }
         else if(contentsArray.length == 0) {
-            html = `<div class="search-empty">Ops... Não encontramos nada com esses termos &#129488</div>`;
+            html = `<div class="search-empty text-gray-800">Ops... Não encontramos nada com esses termos &#129488</div>`;
         }
         else{
             html = '<ul>';
