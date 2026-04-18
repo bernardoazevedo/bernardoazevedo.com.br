@@ -1,337 +1,116 @@
-/* ==========================================
-   System.css Custom Overrides & Extensions
-   ========================================== */
-
-/* --- Desktop & Body --- */
 body {
-    background-color: #a8a8a8;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
 }
 
-.desktop {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* --- Menu Bar --- */
-.menu-bar-main {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.menu-bar-main a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.apple-icon {
-    font-size: 14px;
-}
-
-.menu-search-container {
-    margin-left: auto !important;
-    display: flex;
-    align-items: center;
-}
-
-/* --- Search --- */
-.search-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.search-field-row {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin: 0;
-    padding: 0;
-}
-
-.search-input {
-    width: 180px;
-    font-size: 12px;
-}
-
-.search-results-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 280px;
-    z-index: 200;
-    background: #fff;
-    border: 2px solid #000;
-    box-shadow: 2px 2px 0 #000;
-    max-height: 300px;
-    overflow-y: auto;
-    margin-top: 4px;
-}
-
-.search-results-dropdown ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.search-results-dropdown li {
-    padding: 4px 8px;
-    border-bottom: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.search-results-dropdown li:hover {
-    background: #000;
-    color: #fff;
-}
-
-.search-results-dropdown li:hover a {
-    color: #fff;
-}
-
-.search-results-dropdown li a {
-    text-decoration: none;
-    color: #000;
-    display: block;
-}
-
-.search-results-dropdown .search-error,
-.search-results-dropdown .search-empty {
-    padding: 8px;
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
-/* --- Main Window --- */
-.main-window {
-    flex: 1;
-    margin: 16px auto;
-    width: 95%;
-    max-width: 900px;
-}
-
-.main-pane {
-    padding: 16px;
-    min-height: 300px;
-}
-
-/* --- Content Body --- */
-.content-body {
-    padding: 8px;
-}
-
-/* --- Parsedown (Markdown Content) --- */
 .parsedown h1 {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: bold;
-    margin: 16px 0 8px 0;
-    border-bottom: 2px solid #000;
-    padding-bottom: 4px;
+    margin-top: 20px;
 }
 
 .parsedown h2 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    margin: 14px 0 6px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 2px;
+    margin-top: 20px;
 }
 
 .parsedown h3 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    margin: 12px 0 6px 0;
+    margin-top: 20px;
 }
 
 .parsedown h4 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    margin: 10px 0 4px 0;
+    margin-top: 20px;
 }
 
 .parsedown h5 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    margin: 8px 0 4px 0;
-}
-
-.parsedown p {
-    margin: 6px 0;
-    line-height: 1.5;
+    margin-top: 20px;
 }
 
 .parsedown ul {
-    list-style-type: disc;
+    list-style-type: circle;
     list-style-position: inside;
-    margin: 4px 0;
-    padding-left: 12px;
 }
 
 .parsedown ol {
     list-style-type: decimal;
     list-style-position: inside;
-    margin: 4px 0;
-    padding-left: 12px;
 }
 
 .parsedown a {
-    color: #000;
-    text-decoration: underline;
-    font-weight: bold;
+    color: rgb(103, 25, 177);
 }
 
 .parsedown a:hover {
-    background: #000;
-    color: #fff;
+    color: rgb(60, 9, 107);
 }
 
 .parsedown pre {
-    background-color: #fff;
-    border: 2px solid #000;
-    padding: 8px 12px;
-    margin: 8px 0;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 4px 0px 16px 0px;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
 }
 
 .parsedown code {
-    background-color: #e0e0e0;
-    border: 1px solid #000;
-    padding: 1px 4px;
-    font-family: 'Chicago', 'Monaco', monospace;
-    font-size: 13px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    color: #4b5563;
+    padding: 2px;
+    margin: 4px 0px 16px 0px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
 }
 
-.parsedown pre code {
-    background: none;
-    border: none;
-    padding: 0;
-}
-
-.parsedown img {
-    max-width: 100%;
-    border: 2px solid #000;
-    margin: 8px 0;
-}
-
-/* --- List Content --- */
 .list-content h1 {
-    font-size: 20px;
+    font-size: 34px;
     font-weight: bold;
-    margin: 8px 0 12px 0;
-    border-bottom: 2px solid #000;
-    padding-bottom: 4px;
+    margin-top: 20px;
 }
 
 .list-content ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    list-style-type: circle;
+    list-style-position: inside;
+    margin: 2px 0px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-.list-content li {
-    padding: 6px 8px;
-    border-bottom: 1px solid #ccc;
+.list-content a:hover {
+    color: rgb(137, 76, 216);
 }
 
-.list-content li:hover {
-    background: #000;
-    color: #fff;
-}
-
-.list-content li:hover a {
-    color: #fff;
-}
-
-.list-content a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    display: block;
-}
-
-/* --- Tables --- */
 table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #000;
 }
 
 th,
 td {
-    padding: 4px 8px;
-    border: 1px solid #000;
-    text-align: left;
+    padding: 8px;
+    border: 1px solid #4b5563;
 }
 
 th {
-    background-color: #c0c0c0;
-    font-weight: bold;
-    border-bottom: 2px solid #000;
+    background-color: #E5E5E5;
 }
 
-/* --- Blockquotes --- */
 blockquote {
-    font-size: 14px;
-    margin: 8px 0;
-    padding: 8px 12px;
-    border-left: 4px solid #000;
-    background: #e0e0e0;
-    line-height: 1.5;
-}
-
-/* --- Error Dialog --- */
-.error-dialog {
-    margin: 40px auto;
-    max-width: 500px;
-    padding: 24px;
-}
-
-/* --- Footer Dialog --- */
-.footer-dialog {
-    margin: 16px auto 16px auto;
-    padding: 8px 24px;
-    text-align: center;
-}
-
-/* --- Nav Link (kept for compatibility) --- */
-.nav-link {
-    text-decoration: none;
-    color: #000;
-    padding: 2px 4px;
-}
-
-.nav-link:hover {
-    background: #000;
-    color: #fff;
-}
-
-.nav-link-active {
-    background: #000;
-    color: #fff;
-}
-
-/* --- Responsive --- */
-@media (max-width: 640px) {
-    .main-window {
-        width: 98%;
-        margin: 8px auto;
-    }
-
-    .search-input {
-        width: 120px;
-    }
-
-    .search-results-dropdown {
-        width: 200px;
-    }
+    font-size: 16px;
+    margin: 16px auto;
+    font-style: italic;
+    color: #6b7280;
+    padding: 16px;
+    border-left: 3px solid rgb(103, 25, 177);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    line-height: 1.6;
+    background: #f3f4f6;
 }
